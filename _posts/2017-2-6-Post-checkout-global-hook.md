@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git: Global post-checkout hook
+title: Git Global post-checkout hook
 ---
 
 # Git: Global post-checkout hook
