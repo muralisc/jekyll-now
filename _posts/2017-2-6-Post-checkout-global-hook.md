@@ -3,8 +3,6 @@ layout: post
 title: Git Global post-checkout hook
 ---
 
-# Git: Global post-checkout hook
-
 A global git post checkout hook allows you to set per repo settings while cloning them.
 While commiting to work repo i needed to configure my work email and
 for public repo i was using gmail.
