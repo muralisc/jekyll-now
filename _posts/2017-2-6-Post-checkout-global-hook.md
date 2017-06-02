@@ -1,6 +1,35 @@
 ---
 layout: post
-title: Post Checkout global git hook
+title: Git: Post checkout hook
 ---
 
-Create a folder `~/.git-template`
+# Git: Post checkout hook
+
+A global git post checkout hook allows you to set per repo when cloning them.
+While commiting to work repo i needed to configure using work email and
+for public repo i was using gmail.
+A post-checkout hook configures this automatically for you while cloning the
+repo itself.
+
+To setup a global post-checkout hook:
+```
+git config --global init.templatedir '~/.git_template'
+mkdir ~/.git_template/hooks
+```
+
+Create a file post-checkout and give it executable permissions.
+```
+touch ~/.git_template/hooks/post-checkout
+chmod +x ~/.git_template/hooks/post-checkout
+```
+
+`post-checkout`:
+```
+#!/bin/bash
+if [[ $(git config --get remote.origin.url) =~ "github.workplace.com" ]]; then
+  git config --local  user.email "xxxxxxxxxxxxx@workplace.com"
+else
+  git config --local  user.email "xxxxxxxx@gmail.com"
+fi
+```
+
